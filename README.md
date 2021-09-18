@@ -5,6 +5,7 @@
 Адаптировано!:)
 
 DEMO: https://mister2020.github.io/minivk2/
+MiniApp vk: https://vk.com/app7955143_539557764
 
 Using:
 npm start
