@@ -18,9 +18,11 @@ import {
   PopoutWrapper,
   ModalDismissButton,
   Button,
-  Div
+  Div,
+  Title
 } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
+
 
 function App() {
   const { viewWidth } = useAdaptivity();
@@ -123,11 +125,11 @@ function App() {
     return (
       <PopoutWrapper player4={onClose}>
       <div style={{
-        backgroundColor: "var(--background_content)",
-        borderRadius: 8,
-        position: "relative",
-        padding: "12px"
-      }}>
+      backgroundColor: "var(--background_content)",
+      borderRadius: 8,
+      position: "relative",
+      padding: "12px"
+    }}>
         <h4>Олег Царев, 23 года</h4><br/>
         <p>Frontend-Developer, Backend-Developer</p>
         <p>Занимается программированием уже 8 лет, в основном Frontend-разработкой, но и Backend</p>
@@ -164,19 +166,38 @@ function App() {
     <CustomPopout4 onClose={() => setPopout(null)} />
   );
 
+    const styles = {
+      but: {
+        textAlign: 'center',
+        align: 'center'
+      },
+      title: {
+        marginTop: '5px',
+        marginBottom: '5px',
+        textAlign: 'center'
+      },
+      gr: {
+        margin: '0 auto 0 auto'
+      }
+    }
+
   //return
   return (
+    <SplitLayout>
+      <SplitCol>
     <View popout={popout} activePanel="popout">
-      <Panel id="popout">
-        <PanelHeader>Команда "Уральские монстры"</PanelHeader>
-        <Group>
-          <CellButton onClick={player1}>Максим Терновенко</CellButton>
-          <CellButton onClick={player2}>Артём Киселёв</CellButton>
-          <CellButton onClick={player3}>Дарья Вознюк</CellButton>
-          <CellButton onClick={player4}>Олег Царев</CellButton>
+      <Panel id="popout" >
+      <Title level="1" weight="bold" style={styles.title}>Команда "Уральские монстры"</Title>
+        <Group style={styles.gr}>
+          <CellButton onClick={player1} style={styles.but}>Максим Терновенко</CellButton>
+          <CellButton onClick={player2} style={styles.but}>Артём Киселёв</CellButton>
+          <CellButton onClick={player3} style={styles.but}>Дарья Вознюк</CellButton>
+          <CellButton onClick={player4} style={styles.but}>Олег Царев</CellButton>
         </Group>
       </Panel>
     </View>
+    </SplitCol>
+    </SplitLayout>
   );
 }
 
